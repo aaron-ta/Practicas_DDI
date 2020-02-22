@@ -33,6 +33,7 @@ public class Pauser : MonoBehaviour {
 	
 	void OnGUI()
 	{
+		/* 
 		if(paused){
     		Cursor.visible = true;
     		Cursor.lockState = CursorLockMode.None;
@@ -40,7 +41,7 @@ public class Pauser : MonoBehaviour {
 			Cursor.visible = false;
     		Cursor.lockState = CursorLockMode.Locked;
 		}
-
+		*/
 	}
 	void MuteAudio () {
 		muted = !muted;

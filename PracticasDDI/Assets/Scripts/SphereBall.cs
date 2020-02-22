@@ -13,7 +13,7 @@ public class SphereBall : Interactable
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
 	/// </summary>
-	protected override void Awake()
+	public override void Awake()
 	{
 		base.Awake();
 		rb = GetComponent<Rigidbody>();
