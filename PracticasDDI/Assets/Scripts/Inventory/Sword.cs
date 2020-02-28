@@ -11,6 +11,7 @@ public class Sword : Item
     //public GameObject swordMesh;
     GameObject swordMesh;
     GameObject parent;
+    
     public override void Use()
     {
         base.Use();
@@ -23,11 +24,16 @@ public class Sword : Item
             Debug.Log("Encontrada");
         parent =  GameObject.FindWithTag("Player");
 
+        swordMesh = parent.transform.Find("EthanSkeleton/EthanHips/PlayerSword").gameObject;
+        /*
+        parent =  GameObject.FindWithTag("Player");
+
           foreach (Transform child in parent.transform)
           {
+              Debug.Log("foreach");
               if (child.tag == "Sword")
                 swordMesh = (child.gameObject);
           }
-        
+        */
     }
 }
