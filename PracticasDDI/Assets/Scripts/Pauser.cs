@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Pauser : MonoBehaviour {
 	private bool paused = false;
@@ -22,7 +23,7 @@ public class Pauser : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyUp(KeyCode.P))
+		if(CrossPlatformInputManager.GetButtonDown("Pause"))
 		{
 			OnGUI();
 			paused = !paused;
@@ -60,7 +61,7 @@ public class Pauser : MonoBehaviour {
 
 	public void Exit()
 	{
-		UnityEditor.EditorApplication.isPlaying = false;
+		//UnityEditor.EditorApplication.isPlaying = false;
 		Application.Quit();
 	}
 }

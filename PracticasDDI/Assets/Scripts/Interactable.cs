@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Interactable : MonoBehaviour 
 {
 	bool isInsideZone;
-	public KeyCode interactionKey = KeyCode.I;
+	bool isGazedAt;
+	float gazedTimer = 0f;
+	public float interactionTime = 2f;
+	// public KeyCode interactionKey = KeyCode.I;
 	/// <summary>
 	/// Update is called every frame, if the MonoBehaviour is enabled.
 	/// </summary>
@@ -13,17 +17,23 @@ public class Interactable : MonoBehaviour
 	{
 		if(isInsideZone)
 		{
-			if(Input.GetKeyDown(interactionKey))
+			// if(Input.GetKeyDown(interactionKey))
+			if(CrossPlatformInputManager.GetButtonDown("Interact"))
 			{
 				Interact();
 			}
 		}
+
+		if(isGazedAt){
+			gazedTimer += Time.deltaTime;
+			Debug.Log(gazedTimer);
+			if(gazedTimer >= interactionTime){
+				Interact();
+				SetGazedAt(false);
+			}
+		}
 	}
 
-	public virtual void Awake()
-	{
-		
-	}
 	/// <summary>
 	/// OnTriggerEnter is called when the Collider other enters the trigger.
 	/// </summary>
@@ -46,7 +56,23 @@ public class Interactable : MonoBehaviour
 		isInsideZone = false;
 	}
 
+	public void SetGazedAt(bool gazedAt)
+	{
+		//añadir cambio de material
+		//iniciar timer si gazedat es true, reset timer si es false
+		isGazedAt = gazedAt;
+		if(!gazedAt){
+			//reset timer
+			gazedTimer = 0f;
+		}
+	}
+
 	public virtual void Interact()
+	{
+
+	}
+
+	public virtual void Awake()
 	{
 
 	}

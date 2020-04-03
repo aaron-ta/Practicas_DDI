@@ -25,6 +25,8 @@ public class Sword : Item
         parent =  GameObject.FindWithTag("Player");
 
         swordMesh = parent.transform.Find("EthanSkeleton/EthanHips/PlayerSword").gameObject;
+        swordMesh.gameObject.SetActive(false);
+        
         /*
         parent =  GameObject.FindWithTag("Player");
 

@@ -24,7 +24,7 @@ public class SphereBall : Interactable
 	{
         Vector3 direction = this.transform.position - player.position;
 		Debug.Log("SphereBall");
-        audioData.Play();
+        //audioData.Play();
         rb.AddForce(direction * kickForce, ForceMode.Force);
 		//rb.AddForce(kickDirection * kickForce, ForceMode.Force);
         //rb.AddRelativeForce(0f,0f,thrust,ForceMode.Acceleration);
