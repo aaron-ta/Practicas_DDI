@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using System.IO.Ports;
 using System.Threading;
@@ -125,3 +126,4 @@ public class SerialComm : MonoBehaviour
         OnCommTerminate();
     }
 }
+*/
